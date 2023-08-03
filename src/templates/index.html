@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block info %}
+    <h1>{{ cocktail.Name }}</h1>
+    <img src="{{ cocktail.Photo }}" alt="Cocktail Image" class="cocktail-image">
+    <h2>Instruction:</h2>
+    <p style="padding-left: 250px; padding-right: 250px;">{{ cocktail.Instruction }}</p>
+    <h2>Ingredients:</h2>
+    <ul>
+        {% for ingredient in cocktail.Ingredients %}
+        <li>{{ ingredient }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
