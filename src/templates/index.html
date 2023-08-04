@@ -6,9 +6,24 @@
     <h2>Instruction:</h2>
     <p style="padding-left: 250px; padding-right: 250px;">{{ cocktail.Instruction }}</p>
     <h2>Ingredients:</h2>
-    <ul>
+    <button id="toggle-button" style="margin-bottom: 20px;">Show ingredients</button>
+    <ul id="ingredients">
         {% for ingredient in cocktail.Ingredients %}
             <li>{{ ingredient }}</li>
         {% endfor %}
     </ul>
+    <script>
+        const instruction = document.getElementById('ingredients');
+        const toggleButton = document.getElementById('toggle-button');
+
+        toggleButton.addEventListener('click', () => {
+            if (instruction.style.display === 'none') {
+                instruction.style.display = 'block';
+            } else {
+                instruction.style.display = 'none';
+            }
+        });
+
+        instruction.style.display = 'none';
+    </script>
 {% endblock %}
