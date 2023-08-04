@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block form %}
+    <form onsubmit="get_cocktail_info(); return false;" style="padding-bottom: 40px;">
+        <input type="text" id="cocktail_name" name="name_of_cocktail">
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

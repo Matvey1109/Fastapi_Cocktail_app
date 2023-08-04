@@ -10,14 +10,14 @@
         }
 
         header {
-            background-color: #2c3e50;
-            color: #fff;
+            background-color: #EFB251;
+            color: black;
             padding: 20px;
         }
 
         h1 {
             margin: 0;
-            font-size: 36px;
+            font-size: 42px;
         }
 
         main {
@@ -28,8 +28,9 @@
         }
 
         .cocktail-image {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
+            margin-top: 10px;
             margin-bottom: 20px;
             border-radius: 20%;
             object-fit: cover;
@@ -62,19 +63,27 @@
     <script>
         function get_cocktail_info() {
             var cocktail_name = document.getElementById("cocktail_name").value;
-            window.location.href = "/cocktail/" + cocktail_name;
+            window.location.href = "/cocktail/get_cocktail/" + cocktail_name;
         }
     </script>
 </head>
 <body>
 <header>
-    <h1>Cocktail Information</h1>
+    <img src="{{ url_for('static', path='img/drink.png') }}" style="width: 42px; display: inline-block;"
+         alt="Cocktail Image">
+    <h1 style="display: inline-block;">
+        <a href="http://127.0.0.1:8000/cocktail" style="color: black; text-decoration: none;">Cocktail Information</a>
+    </h1>
+
+    <h2 style="display: inline-block; float: right; margin-right: 25px; margin-top: 15px;">
+        <a href="http://127.0.0.1:8000/cocktail/random_cocktail" style="color: black;">Random Cocktail</a>
+    </h2>
+    <h2 style="display: inline-block; float: right; margin-right: 25px; margin-top: 15px;">
+        <a href="http://127.0.0.1:8000/cocktail/get_cocktail" style="color: black;">Get Cocktail</a>
+    </h2>
 </header>
 <main>
-    <form onsubmit="get_cocktail_info(); return false;" style="padding-bottom: 40px;">
-        <input type="text" id="cocktail_name" name="name_of_cocktail">
-        <input type="submit" value="Submit">
-    </form>
+    {% block form %}{% endblock %}
     {% block info %}{% endblock %}
 </main>
 </body>
